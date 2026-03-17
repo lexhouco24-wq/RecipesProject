@@ -75,6 +75,12 @@ For this analysis, we are taking a closer look at the distribution of the time(i
 
 For this analysis, we are looking at the distribution of the cooking time when comparing it to the average rating. This graph shows that there is a large proportion of shorter cooking times having a higher rating.
 
+<iframe
+  src="assets/BivariateGraph.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
