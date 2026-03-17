@@ -10,7 +10,7 @@ This data science projected focuses on exploring the relationship between the co
 
 The idea of food to many is simply just the basic necessity that we need to survive. However, food has always meant more than that to me. From eating food, to watching professionals cook, to even cooking myself, I have always found an interest in the culinary world. With that being said, I have wondered what exactly makes a dish so good? It could be a variety of different things, but here I want to investigate the relationship between the cooking time and the average rating of various recipes. Do people need to spend hours to make a great dish, or could they achieve that goal in a shorter amount of time? To conduct this investigation, I am analyzing two datasets that contain cooking times and ratings posted on [food.com](https://www.food.com).
 
-The first dataset, `recipes`, contains 83782 unique recipes. Each recipe has 10 attributes which include the following information:
+The first dataset, `recipes`, contains 83782 rows, each containing a unique recipe. Each recipe has 10 attributes which include the following information:
 
 | Column             | Description                                                                                                                                                                                       |
 | :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -37,6 +37,15 @@ The second dataset,`interactions`,  contains 731927 rows which each contain a re
 | `'rating'`    | Rating given        |
 | `'review'`    | Review text         |
 
+There are several key variable from the datasets that are relevant to our research question. The `id` column allowed us to merge the two data sets which led to grouping our ratings by recipe. The `minutes` column represents the amount of time for that recipe which serves as the explanatory variable in our analysis. The `rating` column contains the ratings given by users which we use to compute a new column, `avg_rating`, which represents the average rating for each recipe and is our response variable.
+
+## Data Cleaning and Exploratory Data Analysis
+
+The data cleaning steps below were taken to ensure a better analysis:
+
+1. Left merge recipes and interactions on id and recpie_id.
+  - This allows us to match the recipes to their rating.
+3. Convert all ratings of 
 
 
 
