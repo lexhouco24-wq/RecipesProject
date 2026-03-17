@@ -43,9 +43,25 @@ There are several key variable from the datasets that are relevant to our resear
 
 The data cleaning steps below were taken to ensure a better analysis:
 
-1. Left merge recipes and interactions on id and recpie_id.
-  - This allows us to match the recipes to their rating.
-3. Convert all ratings of 
+1. Left merge recipes and interactions on `id` and `recpie_id`.
+  - This allows us to match the recipes to their ratings.
+2. Fill all ratings of 0 with np.nan.
+  - Ratings are based on a 1 to 5 scale, indicating that ratings of 0 are actually missing values. In order to avoid bias we can fill all the 0 ratings with np.nan.
+3. Add `avg_rating` column into the merged table.
+  - Since some recipes may have multiple ratings, we take the average of the ratings which will represent that recipe's rating.
+
+Here are the first five rows of the cleaned dataframe. Since our investigation does not require all of the columns, only relevant data will be displayed.
+
+| id      | minutes  | avg_rating |
+| :------ | :------- | :--------- |
+| 333281  | 40       | 4.0        |
+| 453467	| 45       | 5.0        |
+| 306168  | 40       | 5.0        |
+| 286009  | 120      | 5.0        |
+| 475785	| 90       | 5.0        |
+
+### Univariate Analysis
+
 
 
 
