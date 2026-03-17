@@ -62,7 +62,14 @@ Here are the first five rows of the cleaned dataframe. Since our investigation d
 
 ### Univariate Analysis
 
+For this analysis, we are taking a closer look at the distribution of the time(in minutes) that it takes for a recipe to be completed. As shown in the plot, the distribution is skewed to the right, telling us that most of the recipes in the dataframe have a lower cooking time.
 
+<iframe
+  src="assets/UnivariateGraph.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
