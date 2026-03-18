@@ -112,6 +112,36 @@ Moving on, we are trying to examine the missingness of `'avg_rating'`, testing t
 
 **Significance Level:** 0.05
 
+<iframe
+  src="assets/DensityGraph.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+We found that the p_value is 0.0, and since it is less than the 0.05 significance level, we reject the null hypothesis. Therefore the missingness of `'avg_rating'` does depend on the cook time `'minutes'`.
+
+We also tested whether or not the missingness depended on a randomly generated column, `'random_group'`, where each recipe was randomly assigned to group A or group B.
+
+**Null Hypothesis:** The missingness of avg_rating does not depend on the random group assignment.
+
+**Alternate Hypothesis:** The missingness of avg_rating does depend on the random group assignment.
+
+**Test Statistic:** The difference in the proportion of recipes assigned to group “A” between those with missing avg_rating and those without missing avg_rating.
+
+**Significance Level:** 0.05
+
+To test this, we performed a permutation test by shuffling the missingness indicator 1000 times and computing the difference in each proportion.
+
+<iframe
+  src="assets/GroupAProp.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The bar chart above clearly shows that there is no relationship between missingness and the random grouping variable since the proportions are nearly identical. We found that the resulting p-value extremely large, far great than the 0.05 significance level meaning that we fail to reject the null hypthesis and can conclude that the missingness of `'avg_rating'` does not depend on `'random_group'`.
+
 
 
 
