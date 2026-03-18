@@ -142,6 +142,45 @@ To test this, we performed a permutation test by shuffling the missingness indic
 
 The bar chart above clearly shows that there is no relationship between missingness and the random grouping variable since the proportions are nearly identical. We found that the resulting p-value extremely large, far great than the 0.05 significance level meaning that we fail to reject the null hypthesis and can conclude that the missingness of `'avg_rating'` does not depend on `'random_group'`.
 
+## Hypthesis Testing
+
+As previously stated, we are interested in determining if there is a difference in average ratings between short and long recipes.
+
+**Null Hypothesis:** There is no difference in average recipe ratings between short and long recipes.
+
+**Alternate Hypothesis:** There is a difference in average recipe ratings between short and long recipes.
+
+**Test Statistic:** The difference in mean average rating between long and short recipes (mean rating of long recipes minus mean rating of short recipes).
+
+**Significance Level:** 0.05
+
+A permutation test was chosen because we are comparing the averages of two groups without assuming any distribution for the ratings. The difference in means is an interpretable test statistic for this question as it measures how much the average rating differs between each group.
+
+#### Conclusion of Permutation Test
+
+The observed test statistic is -0.027. The p-value of 0.03 that we found is less than oour 0.05 significance level, meaning we reject the null hypothesis. There is statistically significant evidence to suggest that the average ratings of short and long recipes are different. With a negative observed test statistic, we can conclude that on average, long recipes tend to have slightly lower ratings than shorter recipes.
+
+## Framing a Prediction Problem
+
+The goal of the prediction task is to **predict the average rating** of a recipe based on its characteristics. Since the response variable is continuous, this is a **regression problem**. The response variable is `'avg_rating'`, which represents the average rating of a recipe.
+
+At the time of prediction, it is assumed that we only have access to information available before users submit their ratings. Because of this, the model uses features that include the cooking time(`'minutes'`), number of ingredients(`'n_ingredients'`), and contributor ID(`'contributor_id'`).
+
+In order to evaluate the performace of the model, MSE and R^2 will be implemented. 
+  - MSE will measure the average squared difference between the predicted and the actual ratings which will be useful for capturing the magnitude of prediction errors
+  - R^2 will measure how well the model explains the variability of the response variable.
+
+## Baseline Model
+
+
+
+
+
+
+
+
+
+
 
 
 
