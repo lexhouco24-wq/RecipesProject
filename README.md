@@ -142,7 +142,7 @@ To test this, we performed a permutation test by shuffling the missingness indic
 
 The bar chart above clearly shows that there is no relationship between missingness and the random grouping variable since the proportions are nearly identical. We found that the resulting p-value extremely large, far great than the 0.05 significance level meaning that we fail to reject the null hypthesis and can conclude that the missingness of `'avg_rating'` does not depend on `'random_group'`.
 
-## Hypthesis Testing
+## Hypothesis Testing
 
 As previously stated, we are interested in determining if there is a difference in average ratings between short and long recipes.
 
@@ -172,8 +172,21 @@ In order to evaluate the performace of the model, MSE and R^2 will be implemente
 
 ## Baseline Model
 
+For my baseline model, a linear regression model was used within a single sklearn Pipeline. The features included in the model are `'minutes'` and `'n_ingredients'`, which are quantitative variables, and `'contributor_id'`, which is a nominal categorical variable.
 
+To prepare the data, a one-hot encoding to the `'contributor_id'` column was applied to standardize the quantitative features which allowed the model to interpret categorical information.
 
+The performance of the model on the test gave us an MSE of 0.46 and an R^2 score of -0.107. The negative R^2 tells us that the model performs worse than if we were to simply predict the ean rating for all recipes. This suggests that the current model is not that effective in capturing the relationship between the features and our target variable.
+
+Overall, this baseline model is not very strong.
+
+## Final Model
+
+For the final model, I wanted to improve upon the baseline model by introducing more informative features as well as using a far more flexible modeling approach. In addition to the three original features used in the baseline model, two new features were engineered: `'log_minutes'` and `'n_steps'`. The `'log_minutes'` feature is a log transformation of the cooking time which will help reduce the skewness in the distribution of recipe cook times, making it easier for the model to learn patterns. The `'n_steps'` feature has the number of steps in a recipe which captures how complex the recipe is and how they may influence user ratings.
+
+For the modeling algorithm, a Random Forest Regressor was used, which captured the nonlinear relationships and interactions between features the the linear model failed to do. GridSearchCV was also used, focusing on the max_depth parameter in order to control the complexity.
+
+The final model ended up achieving a better performace than the baseline model. The MSE was 0.415 and the R^2 was 0.0018. The lower MSE and higher R^2 indicates that the moodel is better at capturing patterns in the data and generalize it to new recipes. The improvement is definitely attributed to the addition of more informative features and the use of a more powerful model.
 
 
 
