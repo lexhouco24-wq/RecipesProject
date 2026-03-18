@@ -73,7 +73,7 @@ For this analysis, we are taking a closer look at the distribution of the time(i
 
 ### Bivariate Analysis
 
-For this analysis, we are looking at the distribution of the cooking time when comparing it to the average rating. This graph shows that there is a large proportion of shorter cooking times having a higher rating.
+For this analysis, we are looking at the distribution of the cooking time when comparing it to the average rating. This graph shows that there a lot of recipes that take shorter cook time but also that a majority of the shorter cook times result in high ratings.
 
 <iframe
   src="assets/BivariateGraph.html"
@@ -82,9 +82,35 @@ For this analysis, we are looking at the distribution of the cooking time when c
   frameborder="0"
 ></iframe>
 
+### Interesting Aggregates
 
+In this section, we are looking at the relationship is grouped cook times(bins) to the ratings of the recipe. From looking at the table, it is interesting to see that the mean across all the bins are fairly similiar and that the only differences between each other are the amount of recipes per bin. From this alone it seems that cook time really has no effect on rating but we will dive deeper into the question later.
 
+| minutes   | mean  | median  | min  | max  | count  |
+| :-------- | :---- | :------ | :--- | :--- | :----- |
+| (0, 30]   | 4.64  | 5.0     | 1.0  | 5.0  | 36418  |
+| (30, 60]	| 4.61  | 5.0     | 1.0  | 5.0  | 24570  |
+| [60, 120] | 4.63  | 5.0     | 1.0  | 5.0  | 11840  |
+| [120, 300]| 4.62  | 5.0     | 1.0  | 5.0  | 5139   |
+| [300, 600	| 4.52  | 4.86    | 1.0  | 5.0  | 2235   |
 
+## Assessment of Missingness
+
+### MNAR Analysis
+
+From the gathered information, it is believed that the `'avg_rating'` column is MNAR. The missingness of `'avg_rating'` is more than likely to be MNAR because it depends on the unobserved value itself. A recipe only receives an average rating if the user chooses to rate it. For example, recipes with poorer qualities are less likely to receive any rating at all, as users may avoid rating worse recipes simply because they just do not care. To better explain the missingness and make it MAR over MNAR, additonal data such as number of views, completed or incompleted recipes, or engagement metrics could be variable that could help push the missingness to be MAR.
+
+### Missingness Dependency
+
+Moving on, we are trying to examine the missingness of `'avg_rating'`, testing to see if its missingness depends on the cooking time of a recipe, `'minutes'`.
+
+**Null Hypothesis:** The missingness of avg_rating does not depend on the cooking time of the recipe.
+
+**Alternate Hypothesis:** The missingness of avg_rating does depend on the cooking time of the recipe.
+
+**Test Statistic:** The difference in mean cooking time (minutes) between recipes with missing avg_rating and those without missing avg_rating.
+
+**Significance Level:** 0.05
 
 
 
