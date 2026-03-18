@@ -188,7 +188,21 @@ For the modeling algorithm, a Random Forest Regressor was used, which captured t
 
 The final model ended up achieving a better performace than the baseline model. The MSE was 0.415 and the R^2 was 0.0018. The lower MSE and higher R^2 indicates that the moodel is better at capturing patterns in the data and generalize it to new recipes. The improvement is definitely attributed to the addition of more informative features and the use of a more powerful model.
 
+## Fairness Analysis
 
+For the fairness analysis, we split the recipes into two groups: short recipes and long recipes. Short recipes would be 60 minutes or less and long recipes would be anything longer than 60 minutes. A Root Mean Squared Error was used as the evaluation metric since this is a regression problem and RMSE gives us an interpretable measure of prediction error.
+
+**Null Hypothesis:** The model is fair — the RMSE for short and long recipes is the same, and any observed difference is due to chance.
+
+**Alternate Hypothesis:** The model is unfair — the RMSE is different between short and long recipes.
+
+**Test Statistic:** The difference in RMSE between long and short recipes.
+
+**Significance Level:** 0.05
+
+A permutation test was conducted by randomly shuffling the group labels and recomputing the difference in RMSE multiple times. The observed difference in RMSE was about 0.06 with a p-value of 0.004. Since the p-value is less than the 0.05 significance level, we reject the null hypothesis.
+
+In conclusion, there is significant evidence that our model performs worse on long recipes than on short recipes. This suggests that our model is possibly unfair.
 
 
 
